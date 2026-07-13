@@ -1,6 +1,20 @@
-//Purpose: AI-callable tool that books an appointment after collecting all required details.
 import { Autonomous, z } from "@botpress/runtime";
 import { AppointmentsTable } from "../tables";
+
+const VALID_SERVICES: Record<string, string> = {
+  "General Checkup": "Dr. Sarah Mitchell",
+  "Blood Testing": "Dr. James Wilson",
+  "X-Ray Imaging": "Dr. Priya Sharma",
+  "Vaccination": "Dr. Michael Chen",
+  "Dental Care": "Dr. Emily Rodriguez",
+  "Eye Examination": "Dr. David Kim",
+  "Dermatology": "Dr. Lisa Patel",
+  "Cardiology": "Dr. Robert Thompson",
+  "Pediatric Care": "Dr. Anna Kowalski",
+  "Physiotherapy": "Dr. Mark Johnson",
+  "ENT": "Dr. Nina Gupta",
+  "Nutrition Counseling": "Dr. Carlos Mendez",
+};
 
 export const bookAppointment = new Autonomous.Tool({
   name: "bookAppointment",
@@ -12,7 +26,9 @@ export const bookAppointment = new Autonomous.Tool({
     email: z.string().describe("Patient email address"),
     service: z
       .string()
-      .describe("Medical service (e.g. Dental Care, Cardiology)"),
+      .describe(
+        "Medical service — must be one of: General Checkup, Blood Testing, X-Ray Imaging, Vaccination, Dental Care, Eye Examination, Dermatology, Cardiology, Pediatric Care, Physiotherapy, ENT, Nutrition Counseling",
+      ),
     doctorName: z
       .string()
       .describe("Doctor's full name (e.g. Dr. Emily Rodriguez)"),
@@ -37,6 +53,23 @@ export const bookAppointment = new Autonomous.Tool({
     reason,
     notes,
   }) => {
+    const expectedDoctor = VALID_SERVICES[service];
+    if (!expectedDoctor) {
+      return {
+        success: false,
+        confirmation: `Sorry, "${service}" is not a valid service at City Health Clinic. Available services: ${Object.keys(VALID_SERVICES).join(", ")}.`,
+        appointmentId: undefined,
+      };
+    }
+
+    if (doctorName !== expectedDoctor) {
+      return {
+        success: false,
+        confirmation: `The correct doctor for ${service} is ${expectedDoctor}, not ${doctorName}. Would you like to book with ${expectedDoctor} instead?`,
+        appointmentId: undefined,
+      };
+    }
+
     const { rows } = await AppointmentsTable.createRows({
       rows: [
         {
@@ -61,7 +94,3 @@ export const bookAppointment = new Autonomous.Tool({
     };
   },
 });
-// Key behaviors:
-// All fields except notes are required — AI must collect them before calling
-// Returns a human-readable confirmation string the AI can relay to the patient
-// Sets status: "booked" on creation
