@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Health Clinic</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f4f8;
+      }
+      .hero {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .card h3 {
+        color: #2563eb;
+        margin-bottom: 8px;
+      }
+      .card .doctor {
+        color: #6b7280;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+      .hours {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        margin-top: 30px;
+      }
+      .hours h2 {
+        color: #2563eb;
+        margin-bottom: 15px;
+      }
+      .hours ul {
+        list-style: none;
+      }
+      .hours li {
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .cta {
+        text-align: center;
+        margin: 40px 0;
+      }
+      .cta button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+      .cta button:hover {
+        background: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h1>City Health Clinic</h1>
+      <p>Your Health, Our Priority</p>
+    </div>
+    <div class="container">
+      <div class="services">
+        <div class="card">
+          <h3>General Checkup</h3>
+          <div class="doctor">Dr. Sarah Mitchell</div>
+          <p>Comprehensive health examinations and preventive care</p>
+        </div>
+        <div class="card">
+          <h3>Blood Testing</h3>
+          <div class="doctor">Dr. James Wilson</div>
+          <p>Complete blood work and diagnostic panels</p>
+        </div>
+        <div class="card">
+          <h3>X-Ray Imaging</h3>
+          <div class="doctor">Dr. Priya Sharma</div>
+          <p>Digital X-ray for bones, chest, and dental</p>
+        </div>
+        <div class="card">
+          <h3>Vaccination</h3>
+          <div class="doctor">Dr. Michael Chen</div>
+          <p>Flu shots, travel vaccines, immunizations</p>
+        </div>
+        <div class="card">
+          <h3>Dental Care</h3>
+          <div class="doctor">Dr. Emily Rodriguez</div>
+          <p>Cleanings, fillings, root canal, oral health</p>
+        </div>
+        <div class="card">
+          <h3>Eye Examination</h3>
+          <div class="doctor">Dr. David Kim</div>
+          <p>Vision testing, glaucoma screening</p>
+        </div>
+        <div class="card">
+          <h3>Dermatology</h3>
+          <div class="doctor">Dr. Lisa Patel</div>
+          <p>Skin conditions, acne, mole removal</p>
+        </div>
+        <div class="card">
+          <h3>Cardiology</h3>
+          <div class="doctor">Dr. Robert Thompson</div>
+          <p>Heart health, ECG, blood pressure</p>
+        </div>
+        <div class="card">
+          <h3>Pediatric Care</h3>
+          <div class="doctor">Dr. Anna Kowalski</div>
+          <p>Children health, growth monitoring</p>
+        </div>
+        <div class="card">
+          <h3>Physiotherapy</h3>
+          <div class="doctor">Dr. Mark Johnson</div>
+          <p>Rehab, sports injuries, pain management</p>
+        </div>
+        <div class="card">
+          <h3>ENT</h3>
+          <div class="doctor">Dr. Nina Gupta</div>
+          <p>Ear, nose, throat treatments</p>
+        </div>
+        <div class="card">
+          <h3>Nutrition</h3>
+          <div class="doctor">Dr. Carlos Mendez</div>
+          <p>Diet planning, weight management</p>
+        </div>
+      </div>
+      <div class="hours">
+        <h2>Clinic Hours</h2>
+        <ul>
+          <li>Monday - Friday: 8:00 AM - 8:00 PM</li>
+          <li>Saturday: 9:00 AM - 5:00 PM</li>
+          <li>Sunday: 10:00 AM - 2:00 PM</li>
+        </ul>
+      </div>
+      <div class="cta">
+        <p>Need help? Chat with our assistant below!</p>
+      </div>
+    </div>
+
+    <!-- BOTPRESS WEBCHAT - Replace BOT_ID and CLIENT_ID after setup -->
+    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+    <script>
+      window.botpressWebchat.init({
+        botId: "<YOUR_BOT_ID>",
+        hostUrl: "https://cdn.botpress.cloud/webchat/v2",
+        messagingUrl: "https://messaging.botpress.cloud",
+        clientId: "<YOUR_CLIENT_ID>",
+        botName: "City Health Clinic",
+        avatarUrl: "https://img.icons8.com/color/96/hospital.png",
+        frontendVersion: "v2",
+        enableConversationDeletion: true,
+        showPoweredBy: false,
+        theme: "prism",
+        themeColor: "#2563eb",
+      });
+    </script>
+  </body>
+</html>

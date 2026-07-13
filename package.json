@@ -1,0 +1,18 @@
+{
+  "name": "clinic-chatbot",
+  "version": "1.0.0",
+  "description": "A working chatbot with chat and webchat integrations",
+  "type": "module",
+  "scripts": {
+    "dev": "adk dev",
+    "build": "adk build",
+    "deploy": "adk deploy"
+  },
+  "dependencies": {
+    "@botpress/evals": "^2.0.2",
+    "@botpress/runtime": "^2.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "adkVersion": "2.0.2",
+  "capabilityBundleVersion": "2.0.2",
+  "generatedAt": "2026-07-13T05:03:29.182Z",
+  "capabilitiesRoot": ".agent0\\capabilities",
+  "skills": [
+    "adk",
+    "adk-debugger",
+    "adk-dev-console",
+    "adk-docs",
+    "adk-evals"
+  ],
+  "playbooks": [
+    "adk-build.md",
+    "adk-debug.md",
+    "adk-dev-console.md",
+    "adk-document.md",
+    "adk-eval.md",
+    "adk-explain.md",
+    "adk-init.md",
+    "adk-ship.md",
+    "adk-test.md",
+    "adk-validate.md"
+  ]
+}
