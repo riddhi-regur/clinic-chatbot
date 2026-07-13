@@ -45,8 +45,8 @@ We accept most major insurance plans including:
 
 ## Emergency Contact
 
-For medical emergencies, call 911.
-For after-hours clinic concerns: 555-0199
+For medical emergencies, call 108.
+For after-hours clinic concerns: 079-111-222
 This is not a substitute for emergency services.
 
 ## Doctors
